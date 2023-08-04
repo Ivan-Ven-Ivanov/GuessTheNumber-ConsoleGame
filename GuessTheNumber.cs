@@ -54,13 +54,13 @@
 
                         if ((difficulty == "m" || difficulty == "medium") && guessesCount >= 10)
                         {
-                            Console.WriteLine("Out of guesses. You lose.");
+                            Console.WriteLine($"Out of guesses. You lose. The number was {computerNumber}");
                             break;
                         }
 
                         if ((difficulty == "h" || difficulty == "hard") && guessesCount >= 5)
                         {
-                            Console.WriteLine("Out of guesses. You lose.");
+                            Console.WriteLine($"Out of guesses. You lose. The number was {computerNumber}");
                             break;
                         }
                     }
