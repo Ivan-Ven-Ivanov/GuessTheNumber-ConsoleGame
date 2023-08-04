@@ -4,32 +4,54 @@
     {
         static void Main(string[] args)
         {
-            Random randomNumber = new Random();
-            int computerNumber = randomNumber.Next(1, 101);
             while (true)
             {
-                Console.Write("Guess the number (1-100): ");
-                string playerInput = Console.ReadLine();
-                bool isValid = int.TryParse(playerInput, out int playerNumber);
-                if (isValid)
+                Random randomNumber = new Random();
+                int computerNumber = randomNumber.Next(1, 101);
+                while (true)
                 {
-                    if (playerNumber == computerNumber)
+                    Console.Write("Guess the number (1-100): ");
+                    string playerInput = Console.ReadLine();
+                    bool isValid = int.TryParse(playerInput, out int playerNumber);
+                    if (isValid)
                     {
-                        Console.WriteLine("You guessed it!");
-                        break;
-                    }
-                    else if(playerNumber > computerNumber)
-                    {
-                        Console.WriteLine("Too high");
+                        if (playerNumber == computerNumber)
+                        {
+                            Console.WriteLine("You guessed it!");
+                            break;
+                        }
+                        else if (playerNumber > computerNumber)
+                        {
+                            Console.WriteLine("Too high");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Too low");
+                        }
                     }
                     else
                     {
-                        Console.WriteLine("Too low");
+                        Console.WriteLine("Invalid input");
                     }
                 }
-                else
+
+                while (true)
                 {
-                    Console.WriteLine("Invalid input");
+                    Console.Write("Do you want to play again? [yes] [no] ");
+                    string playAgain = Console.ReadLine().ToLower();
+                    if (playAgain == "yes")
+                    {
+                        break;
+                    }
+                    else if (playAgain == "no")
+                    {
+                       return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ivalid input");
+                        continue;
+                    }
                 }
             }
         }
